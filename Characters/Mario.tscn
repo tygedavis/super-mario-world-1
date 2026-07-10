@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cfe6j5sf4fl1i"]
+
+[ext_resource type="Script" uid="uid://b48riffbxoi5y" path="res://Characters/mario.gd" id="1_8yuk5"]
+[ext_resource type="Texture2D" uid="uid://c5kkboedol43f" path="res://Assets/Mario.png" id="1_prkxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssf46"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uylj4"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yuk5"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dif8k"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcat3"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssf46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssf46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uylj4")
+}],
+"loop": false,
+"name": &"sm_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yuk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dif8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcat3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dif8k")
+}],
+"loop": true,
+"name": &"sm_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yuk5"]
+size = Vector2(13, 17)
+
+[node name="Mario" type="CharacterBody2D" unique_id=1002954841]
+script = ExtResource("1_8yuk5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251907]
+sprite_frames = SubResource("SpriteFrames_ssf46")
+animation = &"sm_jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1190619116]
+visible = false
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_8yuk5")

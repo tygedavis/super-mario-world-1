@@ -24,11 +24,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	# Execute logic if player is not moving forward or backward	
-	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "sm_walk"
+	if velocity.x == 0:
+		print("Animation `sm_stand` triggered...")
+		$AnimatedSprite2D.play("sm_stand")
+	else:
+		print("Animation `sm_walk` triggered...")
+		$AnimatedSprite2D.play("sm_walk")
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	
-	if Input.is_action_pressed("jump"):
-		$AnimatedSprite2D.animation = "sm_jump"
+	if Input.is_action_pressed("jump") && !is_on_floor():
+		print("Animation `sm_jump` triggered...")
+		$AnimatedSprite2D.play("sm_jump")
 
 	move_and_slide()

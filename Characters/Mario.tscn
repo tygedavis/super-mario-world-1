@@ -71,6 +71,7 @@ animations = [{
 size = Vector2(13, 17)
 
 [node name="Mario" type="CharacterBody2D" unique_id=1002954841]
+collision_layer = 2
 script = ExtResource("1_8yuk5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251907]

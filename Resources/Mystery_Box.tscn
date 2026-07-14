@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://kk3tsobmh2jm"]
+
+[ext_resource type="Texture2D" uid="uid://bpr2it6ddoo3x" path="res://Assets/OverWorld.png" id="1_lpl8m"]
+[ext_resource type="Script" uid="uid://cnxmrv03udw7j" path="res://Resources/mystery_box.gd" id="2_lsxo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgj2c"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_botr1"]
+size = Vector2(15, 1)
+
+[node name="MysteryBox" type="StaticBody2D" unique_id=1668407594]
+collision_mask = 3
+script = ExtResource("2_lsxo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=118980692]
+texture = ExtResource("1_lpl8m")
+hframes = 8
+vframes = 8
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=480921956]
+shape = SubResource("RectangleShape2D_vgj2c")
+
+[node name="BottomDetector" type="Area2D" parent="." unique_id=1881080301]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BottomDetector" unique_id=1823968705]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_botr1")
+
+[connection signal="body_entered" from="BottomDetector" to="." method="_on_bottom_detector_body_entered"]

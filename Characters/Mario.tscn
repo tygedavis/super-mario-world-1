@@ -31,7 +31,7 @@ region = Rect2(96, 0, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssf46"]
 animations = [{
 "frames": [{
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ssf46")
 }, {
 "duration": 1.0,
@@ -75,11 +75,10 @@ script = ExtResource("1_8yuk5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251907]
 sprite_frames = SubResource("SpriteFrames_ssf46")
-animation = &"sm_jump"
+animation = &"sm_stand"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1190619116]
-visible = false
 position = Vector2(0.5, 7.5)
 shape = SubResource("RectangleShape2D_8yuk5")
 

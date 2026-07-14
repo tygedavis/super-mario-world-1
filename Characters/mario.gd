@@ -13,7 +13,10 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		#print("jump was just pressed")
 		velocity.y = JUMP_VELOCITY
+		$AnimatedSprite2D.play("sm_jump")
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -23,17 +26,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	# Execute logic if player is not moving forward or backward	
-	if velocity.x == 0:
-		print("Animation `sm_stand` triggered...")
+	# Execute logic if player is not moving forward or backward
+	if velocity.x == 0 && velocity.y == 0:
+		#print("Animation `sm_stand` triggered...")
 		$AnimatedSprite2D.play("sm_stand")
-	else:
-		print("Animation `sm_walk` triggered...")
+	elif velocity.x != 0 && velocity.y == 0:
+		# print("Animation `sm_walk` triggered...")
 		$AnimatedSprite2D.play("sm_walk")
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-	
-	if Input.is_action_pressed("jump") && !is_on_floor():
-		print("Animation `sm_jump` triggered...")
-		$AnimatedSprite2D.play("sm_jump")
 
 	move_and_slide()

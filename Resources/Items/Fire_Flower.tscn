@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://df8eejrer3pff"]
+
+[ext_resource type="Texture2D" uid="uid://b473m67nufuue" path="res://Assets/Items.png" id="1_pefx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqhgv"]
+size = Vector2(16, 16)
+
+[node name="FireFlower" type="CharacterBody2D" unique_id=2142480184]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463903561]
+shape = SubResource("RectangleShape2D_pqhgv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1165639487]
+texture = ExtResource("1_pefx0")
+hframes = 5
+vframes = 3
+frame = 2

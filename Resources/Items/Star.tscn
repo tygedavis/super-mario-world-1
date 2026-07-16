@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://boov1ymelykvq"]
+
+[ext_resource type="Texture2D" uid="uid://b473m67nufuue" path="res://Assets/Items.png" id="1_na0oq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgj2c"]
+size = Vector2(16, 16)
+
+[node name="Star" type="CharacterBody2D" unique_id=869036266]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=80747532]
+shape = SubResource("RectangleShape2D_vgj2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1077327773]
+texture = ExtResource("1_na0oq")
+hframes = 5
+vframes = 3
+frame = 3

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bw72ub0cy64h1"]
+
+[ext_resource type="Texture2D" uid="uid://b473m67nufuue" path="res://Assets/Items.png" id="1_srhu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gljoe"]
+size = Vector2(16, 16)
+
+[node name="RedMushroom" type="CharacterBody2D" unique_id=824724420]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217007120]
+texture = ExtResource("1_srhu1")
+hframes = 5
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1392984428]
+shape = SubResource("RectangleShape2D_gljoe")

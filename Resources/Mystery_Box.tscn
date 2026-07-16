@@ -30,4 +30,12 @@ collision_mask = 2
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_botr1")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=923438722]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.21960784, 0.13725491, 0.05882353, 0.74509805)
+
 [connection signal="body_entered" from="BottomDetector" to="." method="_on_bottom_detector_body_entered"]

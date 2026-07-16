@@ -22,3 +22,11 @@ func _process(delta: float) -> void:
 
 func _on_bottom_detector_body_entered(body: Node2D) -> void:
 	print("The mystery box has been entered")
+	# Move the box up and down
+	position.y-=10
+	await get_tree().create_timer(.09).timeout
+	position.y+=10
+	
+	# Spawn the random item
+	
+	# Disable Mystery Box

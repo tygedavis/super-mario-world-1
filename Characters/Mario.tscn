@@ -28,6 +28,30 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_prkxk")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_urkdl"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji56d"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_013hn"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tp28"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52n36"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6dqk"]
+atlas = ExtResource("1_prkxk")
+region = Rect2(320, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssf46"]
 animations = [{
 "frames": [{
@@ -65,6 +89,42 @@ animations = [{
 "loop": 1,
 "name": &"sm_walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urkdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji56d")
+}],
+"loop": 0,
+"name": &"xl_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_013hn")
+}],
+"loop": 1,
+"name": &"xl_stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tp28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52n36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6dqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52n36")
+}],
+"loop": 1,
+"name": &"xl_walk",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8yuk5"]
@@ -76,11 +136,21 @@ script = ExtResource("1_8yuk5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622251907]
 sprite_frames = SubResource("SpriteFrames_ssf46")
-animation = &"sm_stand"
+animation = &"xl_walk"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1190619116]
+visible = false
 position = Vector2(0.5, 7.5)
 shape = SubResource("RectangleShape2D_8yuk5")
 
 [node name="Player_Camera_2D" parent="." unique_id=701813427 instance=ExtResource("3_dif8k")]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2139625244]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1723741175]
+position = Vector2(0.5, 7.5)
+shape = SubResource("RectangleShape2D_8yuk5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

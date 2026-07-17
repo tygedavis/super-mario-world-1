@@ -10,7 +10,7 @@ size = Vector2(16, 16)
 size = Vector2(18, 6)
 
 [node name="RedMushroom" type="CharacterBody2D" unique_id=824724420 groups=["items"]]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_gljoe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1217007120]

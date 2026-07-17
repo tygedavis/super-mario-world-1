@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 var SPEED = 100.0
-#const JUMP_VELOCITY = -400.0
 
 
 func _physics_process(delta: float) -> void:
@@ -17,7 +16,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_collision_sides_body_entered(_body: Node2D) -> void:
 	SPEED = SPEED * -1
-	
 
-func collect():
-	pass
+
+func collect(Mario):
+	Mario.grow_big()
+	queue_free()

@@ -17,6 +17,10 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 
 project/assembly_name="Super Mario World 1"
 
+[global_group]
+
+items="A group for all \"power-up\" items in the game"
+
 [input]
 
 move_left={

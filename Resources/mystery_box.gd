@@ -11,7 +11,9 @@ var ENABLED = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Determine which random object to display
-	item_scene = items.pick_random()
+	# TODO: TEMP CHANGE FOR TESTING
+	#item_scene = items.pick_random()
+	item_scene = red_mushroom_scene
 	print("Random item is: ", item_scene)
 
 
@@ -30,7 +32,6 @@ func _on_bottom_detector_body_entered(_body: Node2D) -> void:
 		
 		# Spawn the random item
 		var item_instance = item_scene.instantiate()
-		print("Global position is: ", global_position)
 		print("Item Instance is: ", item_instance)
 		item_instance.position = Vector2(0, -20)
 		add_child(item_instance)
